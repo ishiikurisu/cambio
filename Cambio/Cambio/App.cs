@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Xamarin.Forms;
+using Cambio.View;
+using Cambio.Controller;
 
 namespace Cambio
 {
@@ -11,20 +12,8 @@ namespace Cambio
     {
         public App()
         {
-            // The root page of your application
-            MainPage = new ContentPage
-            {
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-                        new Label {
-                            HorizontalTextAlignment = TextAlignment.Center,
-                            Text = "Welcome to Xamarin Forms!"
-                        }
-                    }
-                }
-            };
+            MainController controller = new MainController(this);
+            MainView view = new MainView(controller);
         }
 
         protected override void OnStart()
