@@ -22,8 +22,8 @@ namespace Cambio.View
         protected ContentPage NewMainPage()
         {
             Button distance = new Button();
-            distance.HorizontalOptions = LayoutOptions.Start;
-            distance.Text = "Distance";
+            distance.HorizontalOptions = LayoutOptions.Center;
+            distance.Text = "\U00021950Distance";
             distance.Clicked += (o, e) => this.GoToDistancePage();
 
             return new ContentPage
@@ -34,7 +34,7 @@ namespace Cambio.View
                     Children = {
                         new Label {
                             HorizontalTextAlignment = TextAlignment.Center,
-                            Text = "CAMBIO"
+                            Text = "CAMBIO\nWhat do you want to convert?"
                         },
                         distance
                     }
@@ -61,6 +61,7 @@ namespace Cambio.View
                             HorizontalTextAlignment = TextAlignment.Center,
                             Text = "Convert Distances"
                         },
+
                         back
                     }
                 }
