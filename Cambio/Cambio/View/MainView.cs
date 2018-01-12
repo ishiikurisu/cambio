@@ -41,48 +41,23 @@ namespace Cambio.View
                 }
             };
         }
-
-        protected ContentPage NewDistancePage()
-        {
-            Button back = new Button();
-            back.HorizontalOptions = LayoutOptions.Start;
-            back.Text = "Back";
-            back.Clicked += (o, e) => this.GoToMainPage();
-
-            return new ContentPage
-            {
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Start,
-                    Children =
-                    {
-                        new Label
-                        {
-                            HorizontalTextAlignment = TextAlignment.Center,
-                            Text = "Convert Distances"
-                        },
-
-                        back
-                    }
-                }
-            };
-        }
         #endregion
 
         #region Go-to Methods
-        protected void GoToMainPage()
+        public void GoToMainPage()
         {
             Controller.GoTo(NewMainPage());
         }
 
-        protected void GoToDistancePage()
+        public void GoToDistancePage()
         {
-            Controller.GoTo(NewDistancePage());
+            DistanceView view = new DistanceView(this);
+            Controller.GoTo(view.MainPage);
         }
         #endregion
 
         #region Properties
-        protected MainController Controller;
+        public MainController Controller;
         public ContentPage MainPage;
         #endregion
     }
